@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PT from 'prop-types'
-import axios from 'axios'
+
 
 const initialFormValues = {
   username: '',
@@ -19,14 +19,6 @@ export default function LoginForm(props) {
 
   const onSubmit = evt => {
     evt.preventDefault()
-    // ✨ implement
-    // axios.post('http://localhost:9000/api/login', values)
-    // .then(res => {
-    //   localStorage.setItem('token', res.data.token)
-    // })
-    // .catch(err => {
-    //   console.log(err)
-    // })
     login(values)
   }
 
@@ -35,7 +27,7 @@ export default function LoginForm(props) {
     // Trimmed username must be >= 3, and
     // trimmed password must be >= 8 for
     // the button to become enabled
-    if (values.password.length < 8 || values.username.length < 3) {
+    if (values.password.trim().length < 8 || values.username.trim().length < 3) {
       return true
     }
   }
